@@ -20,8 +20,6 @@ app.get('/api/v3/app/events', async (req, res) => {
   }
   try {
       const { client, db } = await connectMongoDB();
-      
-
       const collection = db.collection('Events');
       const event = await collection.findOne({ _id: new ObjectId(eventId) });
 
@@ -138,8 +136,6 @@ app.delete('/api/v3/app/events', async (req, res) => {
 
     try {
         const { client ,db } = await connectMongoDB();
-       
-
         const collection = db.collection('Events');
         const result = await collection.deleteOne({ _id: new ObjectId(eventId) });
 
